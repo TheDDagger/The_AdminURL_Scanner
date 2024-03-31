@@ -23,13 +23,13 @@ This Python script is designed to scan a given URL for common administration pat
 1. Clone this repository to your local machine:
 
     ```
-    git clone https://github.com/your-username/web-admin-url-scanner.git
+    git clone https://github.com/TheDDagger/The_AdminURL_Scanner.git
     ```
 
 2. Navigate to the directory:
 
     ```
-    cd web-admin-url-scanner
+    cd The_AdminURL_Scanner
     ```
 
 3. Run the script:

@@ -39,6 +39,7 @@ This Python script is designed to scan a given URL for common administration pat
     ```
 
 4. Enter the URL you want to scan when prompted.
+## Example
 
 
 ## Contributing

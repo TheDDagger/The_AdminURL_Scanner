@@ -40,7 +40,13 @@ This Python script is designed to scan a given URL for common administration pat
 
 4. Enter the URL you want to scan when prompted.
 ## Example
-
+python TheScanner.py 
+Enter the URL you want to scan: http://example.com
+Admin login found: http://example.com/admin
+Admin login found: http://example.com/administrator
+...
+Total admin paths found: 10
+Time taken: 5.32 seconds
 
 ## Contributing
 

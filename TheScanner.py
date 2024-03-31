@@ -36,7 +36,7 @@ def scan_admin_path(url, path):
     return False
 
 def get_common_admin_paths():
-    return [
+    common_admin_paths = [
         '/admin', '/administrator', '/login', '/wp-admin', '/admin/login.php',
         '/admin/login', '/user/login', '/cpanel', '/admin.php', '/wp-login.php',
         '/wp-login', '/admin/', '/administrator/', '/login/', '/wp-admin/',
@@ -93,6 +93,13 @@ def get_common_admin_paths():
         '/admin/admin_validate'
     ]
 
+    # Additional paths
+    additional_paths = [
+        f'/admin{i}' for i in range(1, 501)
+    ]
+    common_admin_paths.extend(additional_paths)
+
+    return common_admin_paths
 def main():
     url = input("Enter the URL you want to scan: ").strip()
     if not url.startswith(('http://', 'https://')):

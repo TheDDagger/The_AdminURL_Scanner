@@ -1,39 +1,56 @@
-import requests
+import asyncio
+import aiohttp
 from termcolor import colored
-import concurrent.futures
 import time
 
-def find_admin_login(url):
+MAX_CONCURRENT_REQUESTS = 100
+TIMEOUT = 5
+
+async def find_admin_login(url):
     start_time = time.time()
     common_admin_paths = get_common_admin_paths()
     found_count = 0
+    total_paths = len(common_admin_paths)
+    print(colored("Scanning for admin login paths...", 'cyan'))
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-        futures = {executor.submit(scan_admin_path, url, path): path for path in common_admin_paths}
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        scanned_paths = []
 
-        for future in concurrent.futures.as_completed(futures):
-            path = futures[future]
-            try:
-                if future.result():
-                    found_count += 1
-                    print(colored(f"Admin login found: {url.rstrip('/') + path}", 'yellow'))
-            except Exception as e:
-                pass
+        for path in common_admin_paths:
+            task = asyncio.ensure_future(scan_admin_path(session, url, path, scanned_paths))
+            tasks.append(task)
+
+        responses = await asyncio.gather(*tasks)
+
+        for response in responses:
+            if response:
+                found_count += 1
+                print(colored(f"Admin login found: {url.rstrip('/') + response}", 'green'))
 
     end_time = time.time()
     duration = end_time - start_time
     print(colored(f"\nTotal admin paths found: {found_count}", 'yellow'))
     print(colored(f"Time taken: {duration:.2f} seconds", 'yellow'))
 
-def scan_admin_path(url, path):
+async def scan_admin_path(session, url, path, scanned_paths):
     admin_url = url.rstrip('/') + path
+    scanned_paths.append(path)
     try:
-        response = requests.get(admin_url, timeout=5)
-        if response.status_code == 200:
-            return True
-    except requests.RequestException:
-        pass
-    return False
+        async with session.get(admin_url, timeout=TIMEOUT) as response:
+            if response.status == 200:
+                return path
+    except aiohttp.ClientError as e:
+        print(colored(f"Error scanning path {admin_url}: {e}", 'red'))
+    except asyncio.TimeoutError:
+        print(colored(f"Timeout scanning path {admin_url}", 'red'))
+
+async def main():
+    url = input("Enter the URL you want to scan: ").strip()
+    if not url.startswith(('http://', 'https://')):
+        url = 'http://' + url
+
+    await find_admin_login(url)
 
 def get_common_admin_paths():
     common_admin_paths = [
@@ -86,25 +103,9 @@ def get_common_admin_paths():
         '/user/login/admin_authenticate', '/cpanel/admin_authenticate',
         '/admin/administrator_authenticate', '/administrator/administrator_authenticate',
         '/login/administrator_authenticate', '/wp-admin/administrator_authenticate',
-        '/admin/login/administrator_authenticate', '/admin/login/administrator_authenticate',
-        '/user/login/administrator_authenticate', '/cpanel/administrator_authenticate',
-        '/admin/validate', '/administrator/validate', '/login/validate', '/wp-admin/validate',
-        '/admin/login/validate', '/admin/login/validate', '/user/login/validate', '/cpanel/validate',
-        '/admin/admin_validate'
+        '/admin/login/administrator_authenticate', '/admin/login/administrator_authenticate'
     ]
-
-    # Additional paths
-    additional_paths = [
-        f'/admin{i}' for i in range(1, 501)
-    ]
-    common_admin_paths.extend(additional_paths)
-
     return common_admin_paths
-def main():
-    url = input("Enter the URL you want to scan: ").strip()
-    if not url.startswith(('http://', 'https://')):
-        url = 'http://' + url  # Add 'http://' if not provided
-    find_admin_login(url)
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

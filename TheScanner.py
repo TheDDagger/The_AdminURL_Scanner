@@ -105,7 +105,29 @@ def get_common_admin_paths():
         '/login/administrator_authenticate', '/wp-admin/administrator_authenticate',
         '/admin/login/administrator_authenticate', '/admin/login/administrator_authenticate'
     ]
-    return common_admin_paths
-
+    uncommon_admin_paths = [
+        '/backend', '/management', '/manager', '/console', '/panel', '/control', '/adm',
+        '/adm/', '/admindir', '/administer', '/administration', '/administrative',
+        '/admins', '/adminweb', '/administer', '/adminpanel', '/adminarea', '/admincontrol',
+        '/admin_login', '/admin_home', '/admin_panel', '/admin-console', '/admin-page',
+        '/admin/manage', '/admin/login', '/admin/admin', '/admin/user', '/admin/administrator',
+        '/admin/account', '/admin/portal', '/admin/cms', '/admin/system', '/adminweb/login',
+        '/adminsite', '/admin/home', '/admin/backend', '/adminarea/login', '/adminarea/admin',
+        '/adminarea/administration', '/adminarea/manage', '/adminarea/user', '/adminarea/cms',
+        '/adminarea/system', '/admincontrol/login', '/admincontrol/admin', '/admincontrol/system',
+        '/admincontrol/user', '/admincontrol/cms', '/admincontrol/manage', '/administrator/login',
+        '/administrator/admin', '/administrator/system', '/administrator/user', '/administrator/cms',
+        '/administrator/manage', '/cpanel/login', '/cpanel/admin', '/cpanel/system', '/cpanel/user',
+        '/cpanel/cms', '/cpanel/manage', '/controlpanel/login', '/controlpanel/admin',
+        '/controlpanel/system', '/controlpanel/user', '/controlpanel/cms', '/controlpanel/manage',
+        '/cp/login', '/cp/admin', '/cp/system', '/cp/user', '/cp/cms', '/cp/manage',
+        '/login/administrator', '/login/admin', '/login/system', '/login/user', '/login/cms',
+        '/login/manage', '/management/login', '/management/admin', '/management/system',
+        '/management/user', '/management/cms', '/management/manage', '/manager/login',
+        '/manager/admin', '/manager/system', '/manager/user', '/manager/cms', '/manager/manage',
+        '/portal/login', '/portal/admin', '/portal/system', '/portal/user', '/portal/cms',
+        '/portal/manage', '/webadmin/login', '/webadmin/admin', '/webadmin/system', '/webadmin/user',
+        '/webadmin/cms', '/webadmin/manage', '/webadminpanel', '/webadmin_panel', '/wp-admin-login',
+        '/wp-admin-login.php', '/wp-admin-login.asp', '/wp-admin-login.jsp', '/wp-admin
 if __name__ == "__main__":
     asyncio.run(main())

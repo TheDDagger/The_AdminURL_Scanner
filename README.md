@@ -11,7 +11,7 @@
 
 1. Ensure you have Python installed on your system.
 2. Install the required dependencies using `pip install -r requirements.txt`.
-3. Run the script by executing `python scan_admin_login.py`.
+3. Run the script by executing `python TheScanner.py`.
 4. Enter the URL you want to scan when prompted.
 5. Sit back and wait for the script to scan for admin login paths.
 

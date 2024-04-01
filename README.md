@@ -1,29 +1,37 @@
+# Admin Login Path Scanner
 
-**Features:**
+## Description
+This Python script scans a given URL for common admin login paths and reports any findings. It utilizes asyncio and aiohttp for asynchronous HTTP requests, allowing for efficient scanning of multiple paths concurrently.
 
-- Asynchronous I/O for efficient scanning
-- Concurrent HTTP requests for faster performance
-- Customizable timeout for each request
-- Informative colored console output
-- Easy-to-use interface with minimal setup
+## Installation
+1. Clone the repository to your local machine:
+    ```
+    git clone https://github.com/TheDDagger/The_AdminURL_Scanner.git
+    ```
+2. Navigate to the project directory:
+    ```
+    cd The_AdminURL_Scanner
+    ```
+3. Install the required dependencies using pip:
+    ```
+    pip install -r requirements.txt
+    ```
 
-**Usage:**
+## Usage
+1. Run the script by executing the following command and follow the prompts:
+    ```
+    python3 TheScanner.py
+    ```
+2. Enter the URL you want to scan for admin login paths when prompted.
+3. Wait for the script to complete the scanning process.
+4. Review the output to see any admin login paths found, along with the total count and the time taken for the scan.
 
-1. Ensure you have Python installed on your system.
-2. Install the required dependencies using `pip install -r requirements.txt`.
-3. Run the script by executing `python TheScanner.py`.
-4. Enter the URL you want to scan when prompted.
-5. Sit back and wait for the script to scan for admin login paths.
+## Configuration
+- The `MAX_CONCURRENT_REQUESTS` variable sets the maximum number of concurrent HTTP requests. Adjust this value based on your system resources and network capabilities.
+- The `TIMEOUT` variable specifies the timeout duration for each HTTP request in seconds. Modify this value as needed to suit your requirements.
 
-**Configuration:**
+## Contributing
+Contributions to this project are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request. Please adhere to the code formatting and style guidelines.
 
-- `MAX_CONCURRENT_REQUESTS`: Adjust the maximum number of concurrent HTTP requests to optimize performance. Default is set to 100.
-- `TIMEOUT`: Set the timeout for each HTTP request in seconds. Default is set to 5 seconds.
-
-**Contributing:**
-
-Contributions are welcome! If you have any ideas for improvements or feature requests, feel free to open an issue or submit a pull request.
-
-**License:**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## License
+Its project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

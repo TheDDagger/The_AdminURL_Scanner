@@ -87,4 +87,22 @@ def get_common_admin_paths():
         '/login/administration', '/wp-admin/administration', '/admin/login/administration',
         '/admin/login/administration', '/user/login/administration', '/cpanel/administration',
         '/admin/auth', '/administrator/auth', '/login/auth', '/wp-admin/auth',
-        '/admin/login/auth', '/admin/login/auth', '/user
+        '/admin/login/auth', '/admin/login/auth', '/user/login/auth', '/cpanel/auth',
+        '/admin/admin_auth', '/administrator/admin_auth', '/login/admin_auth',
+        '/wp-admin/admin_auth', '/admin/login/admin_auth', '/admin/login/admin_auth',
+        '/user/login/admin_auth', '/cpanel/admin_auth', '/admin/administrator_auth',
+        '/administrator/administrator_auth', '/login/administrator_auth',
+        '/wp-admin/administrator_auth', '/admin/login/administrator_auth',
+        '/admin/login/administrator_auth', '/user/login/administrator_auth',
+        '/cpanel/administrator_auth', '/admin/authenticate', '/administrator/authenticate',
+        '/login/authenticate', '/wp-admin/authenticate', '/admin/login/authenticate',
+        '/admin/login/authenticate', '/user/login/authenticate', '/cpanel/authenticate',
+        '/admin/admin_authenticate', '/administrator/admin_authenticate',
+        '/login/admin_authenticate', '/wp-admin/admin_authenticate',
+        '/admin/login/admin_authenticate', '/admin/login/admin_authenticate',
+        '/user/login/admin_authenticate', '/cpanel/admin_authenticate',
+        '/admin/administrator_authenticate', '/administrator/administrator_authenticate',
+        '/login/administrator_authenticate', '/wp-admin/administrator_authenticate',
+        '/admin/login/administrator_authenticate', '/admin/login/administrator_authenticate'
+    ]
+    uncommon_admin_paths

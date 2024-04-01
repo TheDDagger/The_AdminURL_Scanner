@@ -1,59 +1,29 @@
 
-# Web Admin URL Scanner
+**Features:**
 
-## Overview
+- Asynchronous I/O for efficient scanning
+- Concurrent HTTP requests for faster performance
+- Customizable timeout for each request
+- Informative colored console output
+- Easy-to-use interface with minimal setup
 
-This Python script is designed to scan a given URL for common administration paths commonly used in web applications. It utilizes multithreading for faster scanning and provides colored output to highlight any discovered admin paths.
+**Usage:**
 
-## Features
-
-- Scans a provided URL for common administration paths.
-- Utilizes multithreading for faster scanning.
-- Colored output to highlight discovered admin paths.
-- Accepts user input for the URL to scan.
-
-## Prerequisites
-
-- Python 3.x
-- Requests library (`pip install requests`)
-- Termcolor library (`pip install termcolor`)
-
-## Usage
-
-1. Clone this repository to your local machine:
-
-    ```
-    git clone https://github.com/TheDDagger/The_AdminURL_Scanner.git
-    ```
-
-2. Navigate to the directory:
-
-    ```
-    cd The_AdminURL_Scanner
-    ```
-
-3. Run the script:
-
-    ```
-    python TheScanner.py
-    ```
-
+1. Ensure you have Python installed on your system.
+2. Install the required dependencies using `pip install -r requirements.txt`.
+3. Run the script by executing `python scan_admin_login.py`.
 4. Enter the URL you want to scan when prompted.
-## Example
-python TheScanner.py 
-Enter the URL you want to scan: http://example.com
-Admin login found: http://example.com/admin
-Admin login found: http://example.com/administrator
-...
-Total admin paths found: 10
-Time taken: 5.32 seconds
+5. Sit back and wait for the script to scan for admin login paths.
 
-## Contributing
+**Configuration:**
 
-Contributions are welcome! Please feel free to submit issues or pull requests.
+- `MAX_CONCURRENT_REQUESTS`: Adjust the maximum number of concurrent HTTP requests to optimize performance. Default is set to 100.
+- `TIMEOUT`: Set the timeout for each HTTP request in seconds. Default is set to 5 seconds.
 
-## License
+**Contributing:**
 
-This project is licensed under the MIT License - see the [LICENSE](MIT License) file for details.
+Contributions are welcome! If you have any ideas for improvements or feature requests, feel free to open an issue or submit a pull request.
 
----
+**License:**
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

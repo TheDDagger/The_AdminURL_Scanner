@@ -105,14 +105,7 @@ def get_common_admin_paths():
         '/login/administrator_authenticate', '/wp-admin/administrator_authenticate',
         '/admin/login/administrator_authenticate', '/admin/login/administrator_authenticate'
     ]
-    uncommon_admin_paths = [
-        '/backend', '/management', '/manager', '/console', '/panel', '/control', '/adm',
-        '/adm/', '/admindir', '/administer', '/administration', '/administrative',
-        '/admins', '/adminweb', '/administer', '/adminpanel', '/adminarea', '/admincontrol',
-        '/admin_login', '/admin_home', '/admin_panel', '/admin-console', '/admin-page',
-        '/admin/manage', '/admin/login', '/admin/admin', '/admin/user', '/admin/administrator',
-        '/admin/account', '/admin/portal', '/admin/cms', '/admin/system', '/adminweb/login',
-        '/adminsite', '/admin/home', '/admin/backend', '/adminarea/login', '/adminarea/admin',
-        '/adminarea/administration', '/adminarea/manage', '/adminarea/user', '/adminarea/cms',
-        '/adminarea/system', '/admincontrol/login', '/admincontrol/admin', '/admincontrol/system',
-        '/admincontrol/user', ]
+    return common_admin_paths
+
+if __name__ == "__main__":
+    asyncio.run(main())

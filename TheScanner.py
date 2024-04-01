@@ -115,4 +115,4 @@ def get_common_admin_paths():
         '/adminsite', '/admin/home', '/admin/backend', '/adminarea/login', '/adminarea/admin',
         '/adminarea/administration', '/adminarea/manage', '/adminarea/user', '/adminarea/cms',
         '/adminarea/system', '/admincontrol/login', '/admincontrol/admin', '/admincontrol/system',
-        '/admincontrol/user',
+        '/admincontrol/user', ]

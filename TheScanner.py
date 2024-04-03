@@ -321,7 +321,7 @@ def get_common_admin_paths():
         '/portaladmin1strator10', '/portaladministrat0r', '/portaladministrat0r1',
         '/portaladministrat0r2', '/portaladministrat0r3', '/portaladministrat0r4',
         '/portaladministrat0r5', '/portaladministrat0r6', '/portaladministrat0r7',
-        '/portaladministrat0r8', '/portaladministrat0r9', '/portaladministrat0r10
+        '/portaladministrat0r8', '/portaladministrat0r9',
 
     ]
     return common_admin_paths

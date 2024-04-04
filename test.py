@@ -35,10 +35,13 @@ async def find_admin_login(url, verbose=False):
             responses = await asyncio.gather(*tasks)
 
             for response in responses:
-                if response:
+                if response[0]:
                     found_count += 1
                     if verbose:
-                        logger.info(f"Admin login found: {url.rstrip('/') + response}")
+                        logger.info(f"Admin login found: {url.rstrip('/') + response[1]}")
+                elif response[1]:
+                    if verbose:
+                        logger.error(f"Timeout scanning path {url.rstrip('/') + response[2]}")
 
             await asyncio.sleep(5)  # Sleep for a while before scanning again
 
@@ -52,16 +55,17 @@ async def find_admin_login(url, verbose=False):
 async def scan_admin_path(session, url, path, scanned_paths, verbose):
     admin_url = url.rstrip('/') + path
     scanned_paths.add(path)
+    timeout = False
     try:
         async with session.get(admin_url, timeout=TIMEOUT) as response:
             if response.status == 200:
-                return path
+                return True, path, ''
     except aiohttp.ClientError as e:
         if verbose:
             logger.error(f"Error scanning path {admin_url}: {e}")
     except asyncio.TimeoutError:
-        if verbose:
-            logger.error(f"Timeout scanning path {admin_url}")
+        timeout = True
+    return False, timeout, path
 
 
 def generate_admin_paths(prefixes, suffixes):

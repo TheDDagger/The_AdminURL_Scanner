@@ -745,9 +745,7 @@ def get_common_admin_paths():
         '/cpanel/administrator_authenticate_login', '/cpanel/admin_authenticate_login',
         '/cpanel/login_authenticate_login', '/cpanel/user_authenticate_login',
         '/cpanel/users_authenticate_login', '/cpanel/admins_authenticate_login',
-        '/cpanel/administrator_auth
-
-
+        
     ]
     return common_admin_paths
 
